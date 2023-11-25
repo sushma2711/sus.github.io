@@ -1,124 +1,469 @@
-<!doctype html>
-<html>
-    <head>
-        <style>
-            h1{
-                text-align: center;
-                padding: 5px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE-edge">
+    <link rel = "stylesheet" href="style.css">
+    <link rel="stylesheet" href="icons/plus123.png">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Cafe</title>
+
+    <style>
+        *,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 100px;
+    background-color: white;
+}
+
+
+/* ============  MENU  ==========*/
+.nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.nav .logo h1{
+    font-weight: 600;
+    font-family: sans-serif;
+    color:#000000;
+}
+
+.nav .logo b{
+    color:goldenrod;
+}
+
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li{
+    margin-right: 50px;
+    
+}
+
+.nav ul li a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    font-family: sans-serif;
+    font-size: 17px;
+    
+}
+
+/* ============  ACTIVE  ============ */
+
+.nav ul.active::after{
+    content: '';
+    width: 50%;
+    height: 3px;
+    background-color: goldenrod;
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+
+}
+
+/*  ============== INPUT============ */
+
+input{
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.signin{
+    background: transparent;
+    border: none;
+}
+
+.signup{
+    background-color: goldenrod;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/*  ========== CONTENT =========*/
+
+.content{
+    display: grid;
+    grid-template-columns: 50% auto;
+    gap: 40px;
+    margin-top: 120px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+/*  #Content TEXT  */
+/*  =========RIGHT-SIDE======== */
+
+.content .content-left{
+    display: block;
+    width: 100%;
+}
+
+.content .content-left .info{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.content .content-left .info h1{
+    font-size: 35px;
+    line-height: 2pc;
+    margin-bottom: 90px;
+    font-family: sans-serif;
+    color:goldenrod;
+}
+
+.content .content-left .info h2{
+    font-size: 60px;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+
+.content .content-left .info p{
+    font-size: 23px;
+    line-height: 2pc;     
+    margin-bottom: 30px;
+    font-family: sans-serif;
+    }
+
+
+/*  #Content */
+/*  ============BUTTON=========== */
+
+.content .content-left button{
+    padding: 10px 23px;
+    background-color: goldenrod;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/*  #Content */
+/*  ============ RIGHT-SIDE ============ */
+
+.content .content-right{
+    display: block;
+    width: 100%;
+}
+
+.content .content-right img{
+    width: 600px;
+    height: auto;
+    position: relative;
+    user-select: none;
+    animation: rotate 10s linear infinite;
+}
+
+
+/*  #Content  */
+/*  =======ANIMATION========== */
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* ===========CARDS=========== */
+
+.category{
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.category .list-items{
+    width: 90%;
+    position: relative;
+    margin-top: 100px;
+}
+
+.category .list-items h3{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-bottom: 70px;
+}
+
+.category .list-items .card-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.category .card-list .card{
+    width: 200px;
+    height:auto;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    background: #ffffff;
+    outline: 2px solid silver;
+}
+
+.category .card-list .card img{
+    width: 100px;
+    height: auto;
+    bottom: 140px;
+    left: 50px;
+    object-fit: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    box-shadow: 0 20px 20px  silver;
+    border-radius: 10%;
+
+}
+
+.category .card-list .card .food-title{
+    padding: 40px 0 10px;
+}
+
+
+.category .card-list .card .food-title h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+
+.category .card .desc-food p{
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+.category .card .price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category .card .price span{
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.category .card .price span .plus-icon{
+    color: goldenrod;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/*  #########   scroll-bar    ########## */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+ ::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color:goldenrod;
+}
+    </style>
+</head>
+<body>
+    <section class="menu">
+        <div class="nav">
             
-            }
-            #d1{
-                padding: 5px;
-                border-collapse:collapse ;
-
-            }
-        </style>
-
-    </head>
-    <body>
-       <table border="0" width="100%" cellpadding="2px" cellspacing="0" style="background-color: green;">
-        <tr>
-            <td>
-                <img src="https://stjit.ac.in/images/stjit/stjit2.png">
-            </td>         
-            <td>
-            <div id="d1"style="text-align:right; background-color:green; color:aliceblue">&nbsp;&nbsp;Home &nbsp;&nbsp;About &nbsp;&nbsp;&nbsp;Admission&nbsp;&nbsp;&nbsp;Department&nbsp;&nbsp;&nbsp;Placement&nbsp;&nbsp;&nbsp;Facilities&nbsp;&nbsp;&nbsp;Contact</div>
-        </td>
-        
-        </tr>
-        </table>
-        <tr>
-            <center>
-            <th>
-                <img src="https://stjit.ac.in/images/banner7.jpg" style="width:100%; height:200%;">
-            </th>
-        </center>
-        </tr>
-        <hr>
-        <tr>
-            <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: lawngreen;">Welcome To Our College</h1>
-        </tr>
-        
-        <tr>
-            <center>
-            <td><img src="https://stjit.ac.in/images/stjit/banner15.jpg" style="width: 30%; height:30%;"></td>
-            <td><img src="https://stjit.ac.in/images/stjit/banner16.jpg" style="width:35%; height:30%;" > </td>
-            <td><img src="https://stjit.ac.in/images/stjit/banner10.jpg" style="width: 30%; height:30%;"> </td>
-        </center>
-        </tr>
-        <hr>
-        <tr>
-            <td>
-            <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: lawngreen;">A Commitment to Technical Education</h1>
-            <p style="background-color: rgb(185, 213, 222); padding:15px;  width:100%; text-align: center;">The real catalyst, which plays important role in shaping the career of a student, is the place of study and its surroundings. Infrastructure of STJ Institute of Technology is at a serene environment on the outskirts of Ranebennur attracts one and all. The campus of the institute extends over an area of 52 acres of land, specially selected to keep the students away from the vitiated atmosphere of city life. Campus is extensively landscaped with green environment. Established in the year 1980. The college is affiliated to Visveswaraiah Technological University, Approved by All India Council for Technical Education and by the Government of Karnataka. Ranebennur is situated in Haveri District of Karnataka, on Poona Bangalore National Highway (NH-4). 295km from Bangalore and 100km from Dharwad. It can be easily reached either by Road or by Rail. Bus frequency from Bangalore to Ranebennur is very high. The Institute is situated at 3km from the Ranebennur Bus Station. The climate throughout the year is mild and salubrious. <br><br>
+    
+            <img src="s1.jpeg " style="width: 10%; height: 40%; text-align: left;">
+            
+            <ul>
+                <li><a style="font-size: larger;" href="#">Home</a></li>
+                <li><a href="MAC.html"><i style="font-size: medium;font: bolder;font-size: large;">mac</i></a></li>
+                <li><a href="ipad.html"><i style="font-size: medium;font: bolder;font-size: large;">ipad</i></a></li>
+                <li><a href="iphone page.html"><i style="font-size: medium;font: bolder;font-size: large;">iphone</i></a></li>
+                <li><a href="Apple watchpage.html"><i style="font-size: medium;font: bolder;font-size: large;">watch</i></a></li>
+                <li><a href="air pods page.html"><i style="font-size: medium;font: bolder;font-size: large;">Airpods</i></a></li>
+                <li><a href="https://www.apple.com/in/tv-home/"><i style="font-size: medium;font: bolder;font-size: large;">tv&amp;home</i></a></li>
+                <li><a href="https://www.apple.com/in/shop/accessories/all"><i style="font-size: medium;font: bolder;font-size: large;">Accessories</i></a></li>
+            </ul>
+            <div>
+                Search&nbsp;&nbsp;<select><option><a href="#">Laptops</a></option><a href="ipad.html">ipads</a><option><a href="MAC.html">Mac</a></option></a></option><option><a href="Apple watchpage.html">Watchs</a></option><option><a href="air pods page.html">Airpodss</a></option></select>
+                <input class="signup" type="submit" value="sign Up" name="signup">
+            </div>
+        </div>    
+    </section>
+    <section class="grid">
+        <div class="content">
+            <div class="content-left">
+               <div class="info">
+                <h1>Store.The best way <br>to buy the products you love.</h1>
                 
-                    <img src="https://stjit.ac.in/images/stjit/mainsmall.jpg">
+               </div>
+               <button>Explore</button>
+            </div>
+            <div class="content-right">
+                <img src="logo.jpeg" style="border-radius: 900px;">
                 
-              </p>
-            </td>
-            <td>
-             
-            </td>
-            <hr>
-            <tr>
-                <td>
-                    <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: left;">Vision</h1>
-                    <p style="background-color:rgb(185, 213, 222); padding:10px; width:100%; text-align: center;" >&nbsp;&nbsp;Aims at developing STJIT as a premier technical institution by excelling in every aspect of technical education.
-                     </p>
-                </td>
+            </div>
+        </div>
+    </section>
+    <section class="category">
+        <div class="list-items">
+            <h3>Popular</h3>
+            <div class="card-list">
+                <div class="card">
+                    <img src="iphone1.png">
+                    <div class="food-title">
+                        <h1><a href="https://www.apple.com/in/shop/buy-iphone">iphone</a></h1>
+                        <i class="fa-brands fa-amazon"></i>
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop iphone</h1><p></p>
+                    </div>
+                </div>
 
-            </tr>
-            <tr>
-                <td>
-                    <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: left;">Mission</h1>
-                    <p style="background-color: rgb(185, 213, 222); padding:10px; width:100%; text-align: center;">Imparting technical education and training in response to the changing needs of industry and society, believing in quality, innovation, ethical and moral standards.
-                    </p>
-                </td>
-            </tr>
-        </tr>
-        <tr>
-            <td>
-                <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center;color: lawngreen;">Latest Events & News</h1>
-                <hr>
-                <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: left; color: orange;">Three days Workshop from 14thto 16th June</h3>
 
-                <p style="background-color: rgb(185, 213, 222); padding:15px;  width:100%; text-align: center;" >Department of Computer Science & Engineering conducted three days workshop on Android application Development and Python Programming from 14th to 16th June 2023.<br><br>
-                 <img src="https://stjit.ac.in/images/stjit//events/CSE%20Workshop/7.jpg" style="width:30%; height:50%;"></p>
+                <div class="card">
+                    <img src="ipad.png">
+                    <div class="food-title">
+                      
+                        <h1><a href=""ipad.html">ipad</a></h1>  
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop ipad</h1><p></p>
+                    </div>
+                    
+
+                </div>
+
+
+                <div class="card">
+                    <img src="watch.png">
+                    <div class="food-title">
+                     
+                        <h1><a href="https://www.apple.com/in/shop/buy-watch">watch</a></h1>   
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop watch</h1><p></p>
+                    </div>
+                    <div class="Price">
+                        <span></span><span><i class="bx bx-plus-circle plus icon"></i></span>
+                    </div>
+
+
+                </div>
                 
-                <hr>
-            </td>
-        </tr>
-        <hr>
-        <tr>
-            <td>
-                <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: left; color: orange;">World Environment Day Celebration</h3>
-                <p style="background-color: rgb(185, 213, 222); padding:15px;  width:100%; text-align: center;">NSS Unit of our Institute celebrated World Environment Day on 5thJune 2023 in our campus.<br><br>
-                    <img src="https://stjit.ac.in/images/stjit/events/Environment%20Day/11.jpeg" style="width:30%; height:50%;">
-                </p>
-            </td>
-        </tr>
-        <hr>
-        <hr>
-        <tr>
-            <td>
-                <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: left; color: orange;">Kannada Rajyotsava Celebration</h3>
-                <p style="background-color: rgb(185, 213, 222); padding:15px;  width:100%; text-align: center;">Kannada Rajyotsava was celebrated on 26th Nov 2022 at STJ Institute of Technology.<br><br>
-                    <img src="https://stjit.ac.in/images/stjit/events/Kannada%20Rajyotsava/1.jpeg" style="width:30%; height:50%;">
-                </p>
-            </td>
-        </tr>
-        <hr>
-        <hr>
-        <tr>
-            <td>
-                <h3 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: left; color: orange;">Secura 2k23 : Sports & Extra Curricular Activities</h3>
-                <p style="background-color: rgb(185, 213, 222); padding:15px;  width:100%; text-align: center;">Annual day celebrated on 31-05-2023 at STJ Institute of Technology.<br><br>
-                    <img src="https://stjit.ac.in/images/stjit/events/secura/2.JPG" style="width:30%; height:50%;">
-                    </p>
 
+                <div class="card">
+                    <img src="mac.png">
+                    <div class="food-title">
+                     
+                        <h1><a href="MAC.html">Mac</a></h1>      
+                        
+
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop mac</h1><p></p>
+                    </div>
+                    <div class="Price">
+                        <span></span><span><i class='bx bx-plus-circle plus icon'></i></span>
+                    </div>
+
+
+                </div>
                 
-            </td>
-        </tr>
-        <hr>
-    </body>
+
+            </div>
+        </div>
+    </section>
+    <section class="category">
+        <div class="list-items">
+            <h3>Most Viewed</h3>
+            <div class="card-list">
+                <div class="card">
+                    <img src="airpods.png" alt="">
+                    <div class="food-title">
+                        
+                            <h1><a href="https://www.apple.com/in/shop/buy-ipad">Airpods</a></h1></h1>
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop  Air pods</h1><p></p>
+                    </div>
+
+
+                </div>
+
+
+                <div class="card">
+                    <img src="apple tv.png" alt="">
+                    <div class="food-title">
+                        
+                        <h1><a href="https://www.apple.com/in/apple-tv-4k/">Apple tv</a></h1>
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop  TV</h1><p></p>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <img src="homepod.png">
+                    <div class="food-title">
+                     
+                        <h1><a href="https://www.apple.com/in/tv-home/">Apple tv</a></h1> 
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop  Home pods</h1><p></p>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <img src="accessories.png">
+                    <div class="food-title">
+                      <h1> <a href="https://www.apple.com/in/shop/accessories/all">Accessories</a></h1>
+                    </div>
+                    <div class="desc-food">
+                        <p></p><h1 style="text-align: center;">Shop  Accessories</h1><p></p>
+                    </div>
+    
+                
+
+            </div>
+        </div>
+    </section><br><br><br><br><br>
+   
+   
+
+    <footer style="text-align: center;">
+        <p>© 2021 iPhone Website. All rights reserved.</p>
+        <h1>QUICK LINKS</h1><br><br>
+    <h3><i><a style="color:goldenrod;" href="https://secure.store.apple.com/in/shop/order/list">Orders Status</a>&nbsp;&nbsp;&nbsp;<a style="color:goldenrod;" href="https://www.apple.com/in/shop/help">shopping help</a>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:goldenrod;" href="https://www.apple.com/in/shop/yoursaves">Your Saves</a></i></h3>
+    </footer>
+
+
+
+</body>
 </html>
